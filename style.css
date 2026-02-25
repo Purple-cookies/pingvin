@@ -1,0 +1,283 @@
+/* Общие стили для страницы */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Шапка сайта */
+header {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Основной контейнер для карточек */
+#main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Стили карточки */
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Заголовок карточки */
+.card-header {
+    background: linear-gradient(45deg, #2193b0, #6dd5ed);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.card-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-header .scientific-name {
+    font-style: italic;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+/* Тело карточки */
+.card-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Изображение */
+.card-image {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.card-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    max-height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.card-image img.loaded {
+    opacity: 1;
+}
+
+.card-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Информационные блоки */
+.info-section {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.2rem;
+    border-left: 4px solid #2193b0;
+}
+
+.info-section h3 {
+    color: #2193b0;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-section h3 i {
+    font-size: 1.4rem;
+}
+
+.info-section p {
+    color: #555;
+    margin-bottom: 0.8rem;
+}
+
+.info-section ul {
+    list-style-position: inside;
+    color: #555;
+    padding-left: 0.5rem;
+}
+
+.info-section li {
+    margin-bottom: 0.3rem;
+    transition: transform 0.2s ease;
+}
+
+.info-section li:hover {
+    transform: translateX(5px);
+    color: #2193b0;
+}
+
+/* Блок с интересными фактами */
+.fun-facts {
+    background: linear-gradient(135deg, #fff5f5 0%, #fff0f0 100%);
+    border-left-color: #ff6b6b;
+}
+
+.fun-facts h3 {
+    color: #ff6b6b;
+}
+
+/* Подсказка для добавления фото */
+.photo-hint {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px 20px;
+    border-radius: 50px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    animation: bounce 2s infinite;
+    border: 2px solid #2193b0;
+}
+
+.photo-hint span {
+    background: #2193b0;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.photo-hint p {
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.photo-hint a {
+    color: #2193b0;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.photo-hint a:hover {
+    text-decoration: underline;
+}
+
+/* Подвал сайта */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 0.9rem;
+}
+
+footer p:last-child {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .card-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .info-section {
+        padding: 1rem;
+    }
+    
+    .photo-hint {
+        bottom: 10px;
+        right: 10px;
+        padding: 10px 15px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Анимация загрузки */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
